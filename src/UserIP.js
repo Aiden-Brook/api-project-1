@@ -27,6 +27,7 @@ export class UserIP extends LitElement {
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   static get properties() {
+    // added city and country properties
     return {
       ip: { type: String, reflect: true },
       city: { type: String, reflect: true },
@@ -92,19 +93,22 @@ export class UserIP extends LitElement {
    * it'll run regardless since we're not doing other actions
    */
   async updateUserIP() {
-    return fetch(this.ipLookUp)
-      .then(resp => {
-        if (resp.ok) {
-          return resp.json();
-        }
-        return false;
-      })
-      .then(data => {
-        this.ip = data.ip;
-        this.city = data.city;
-        this.country = data.country;
-        return data;
-      });
+    return (
+      fetch(this.ipLookUp)
+        .then(resp => {
+          if (resp.ok) {
+            return resp.json();
+          }
+          return false;
+        })
+        // gets data from api about city and country
+        .then(data => {
+          this.ip = data.ip;
+          this.city = data.city;
+          this.country = data.country;
+          return data;
+        })
+    );
   }
 
   // styles that ONLY APPLY TO THIS CODE BLOCK
@@ -142,6 +146,8 @@ export class UserIP extends LitElement {
   render() {
     return html` <ul>
       <li><strong class="ipaddress">IP address:</strong> ${this.ip}</li>
+      //not sure what the ul, li, and strong do but I just replaced ip with city
+      and country
       <li><strong class="ipaddress"> City:</strong> ${this.city}</li>
       <li><strong class="ipaddress"> Country:</strong> ${this.country}</li>
     </ul>`;
