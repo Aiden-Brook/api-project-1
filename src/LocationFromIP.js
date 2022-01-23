@@ -7,6 +7,7 @@ export class LocationFromIP extends LitElement {
     return 'location-from-ip';
   }
 
+  // made long and lat null
   constructor() {
     super();
     this.UserIpInstance = new UserIP();
@@ -15,6 +16,7 @@ export class LocationFromIP extends LitElement {
     this.lat = null;
   }
 
+  // created long and lat properties
   static get properties() {
     return {
       long: { type: Number, reflect: true },
@@ -22,6 +24,7 @@ export class LocationFromIP extends LitElement {
     };
   }
 
+  //
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
@@ -29,6 +32,7 @@ export class LocationFromIP extends LitElement {
     this.getGEOIPData();
   }
 
+  //
   async getGEOIPData() {
     const IPClass = new UserIP();
     const userIPData = await IPClass.updateUserIP();
@@ -41,8 +45,8 @@ export class LocationFromIP extends LitElement {
       })
       .then(data => {
         console.log(data);
-        this.long = data.longitude;
-        this.lat = data.latitude;
+        this.long = data.latitude;
+        this.lat = data.longitude;
         return data;
       });
   }
