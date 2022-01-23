@@ -45,8 +45,8 @@ export class LocationFromIP extends LitElement {
       })
       .then(data => {
         console.log(data);
-        this.long = data.longitude;
-        this.lat = data.latitude;
+        this.long = data.latitude;
+        this.lat = data.longitude;
         return data;
       });
   }
@@ -66,6 +66,7 @@ export class LocationFromIP extends LitElement {
   }
 
   // in the console it has the correct long and lat that the API gives, but nothing comes up on the map
+  // I tried to change long and lat in the url and it gave me a location in kansas
   render() {
     // this function runs every time a properties() declared variable changes
     // this means you can make new variables and then bind them this way if you like
