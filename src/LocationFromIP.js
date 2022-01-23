@@ -45,8 +45,8 @@ export class LocationFromIP extends LitElement {
       })
       .then(data => {
         console.log(data);
-        this.long = data.latitude;
-        this.lat = data.longitude;
+        this.long = data.longitude;
+        this.lat = data.latitude;
         return data;
       });
   }
