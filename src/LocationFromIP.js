@@ -65,11 +65,12 @@ export class LocationFromIP extends LitElement {
     ];
   }
 
+  // in the console it has the correct long and lat that the API gives, but nothing comes up on the map
   render() {
     // this function runs every time a properties() declared variable changes
     // this means you can make new variables and then bind them this way if you like
     console.log(`lat: ${this.lat} long ${this.long}`);
-    const url = `https://maps.google.com/maps?q=${this.long},${this.lat}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    const url = `https://maps.google.com/maps?q=${this.lat},${this.long}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
     return html`<iframe title="Where you are" src="${url}"></iframe> `;
   }
 }
