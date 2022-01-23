@@ -144,10 +144,9 @@ export class UserIP extends LitElement {
 
   // this serves very little purpose but at least we're rendering the info
   render() {
+    // not sure what the ul, li, and strong do but I just replaced ip with city and country
     return html` <ul>
       <li><strong class="ipaddress">IP address:</strong> ${this.ip}</li>
-      //not sure what the ul, li, and strong do but I just replaced ip with city
-      and country
       <li><strong class="ipaddress"> City:</strong> ${this.city}</li>
       <li><strong class="ipaddress"> Country:</strong> ${this.country}</li>
     </ul>`;
